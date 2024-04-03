@@ -45,6 +45,7 @@ public class TaskController {
     public List<Task> getAllTasksByUserId(@PathVariable Long userId) {
         return taskService.findTasksByUserId(userId);
     }
+
     @PutMapping("/tasks/{taskId}")
     public Task updateTask(@PathVariable Long taskId, @RequestBody TaskDto taskUpdateDto){
         return taskService.updateTask(taskId, taskUpdateDto);
@@ -73,5 +74,16 @@ public class TaskController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    //@GetMapping("/user/{userId}")
+//public ResponseEntity<List<Task>> getAllTasksByUserId(@PathVariable Long userId) {
+//    List<Task> tasks = taskService.findTasksByUserId(userId);
+//    if (tasks != null && !tasks.isEmpty()) {
+//        return ResponseEntity.ok(tasks);
+//    } else if (tasks != null) {
+//        return ResponseEntity.noContent().build();
+//    } else {
+//        return ResponseEntity.internalServerError().build();
+//    }
+//}
 }
 
